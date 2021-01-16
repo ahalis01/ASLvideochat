@@ -6,26 +6,45 @@
 // Handling all of our errors here by alerting them
 function handleError(error) {
     if (error) {
-        alert(error.message);
+        alert("yo0000 " + error.message);
     }
   }
 
 // (optional) add server code here
 //initializeSession();
 
+
 // (optional) add server code here
-var SERVER_BASE_URL = 'https://asl-video-chat.herokuapp.com';
-fetch(SERVER_BASE_URL + '/session').then(function(res) {
+var SERVER_BASE_URL = 'https://asl-video-chat.herokuapp.com/';
+fetch(SERVER_BASE_URL + '/session')
+.then(function(res) {
   return res.json()
-}).then(function(res) {
-  apiKey = res.apiKey;
-  sessionId = res.sessionId;
-  token = res.token;
-  initializeSession();
-}).catch(handleError);
+})
+.then(function(res) {
+    apiKey = res.apiKey;
+    sessionId = res.sessionId;
+    token = res.token;
+    initializeSession();
+})
+.catch(handleError);
 
-
-console.log(apiKey);
+///////
+/*
+var SERVER_BASE_URL = 'https://asl-video-chat2.herokuapp.com/';
+fetch(SERVER_BASE_URL + '/session')
+    .then(
+        function(response){
+            response.json().then(function(data){
+                console.log(data);
+                apiKey = data.apiKey;
+                token = data.token;
+                sessionId = data.sessionId;
+            });
+        }
+    )
+    .catch(handleError);
+*/
+//console.log("apiKey is " + apiKey);
 function initializeSession() {
     var session = OT.initSession(apiKey, sessionId);
   
