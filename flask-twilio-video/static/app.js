@@ -8,6 +8,7 @@ const count = document.getElementById('count');
 const chatScroll = document.getElementById('chat-scroll');
 const chatContent = document.getElementById('chat-content');
 const chatInput = document.getElementById('chat-input');
+const testInput = document.getElementById('testText');
 let connected = false;
 let room;
 let chat;
@@ -233,6 +234,7 @@ function connectChat(token, conversationSid) {
 function addMessageToChat(user, message) {
     chatContent.innerHTML += `<p><b>${user}</b>: ${message}`;
     chatScroll.scrollTop = chatScroll.scrollHeight;
+    testInput.innerHTML += `<p><i>${message}</i>`;
 }
 
 function toggleChatHandler() {
