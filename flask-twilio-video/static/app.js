@@ -278,8 +278,9 @@ function testPythonData(){
 function testVideoText(message){
     //testInput.innerHTML += `<p><i>${message}</i>`; // adds below
     currentText = document.getElementById('testText');
-    var textToAdd = document.createTextNode(" " + message);
+    var textToAdd = document.createTextNode(message); // message will likely be chars
     currentText.appendChild(textToAdd);
+    
     //testInput.innerHTML = `<p><i>${message}</i>`; // replaces previous
 }
 
