@@ -8,7 +8,7 @@ const count = document.getElementById('count');
 const chatScroll = document.getElementById('chat-scroll');
 const chatContent = document.getElementById('chat-content');
 const chatInput = document.getElementById('chat-input');
-const testInput = document.getElementById('testText');
+//const testInput = document.getElementById('testText');
 let connected = false;
 let room;
 let chat;
@@ -234,7 +234,6 @@ function connectChat(token, conversationSid) {
 function addMessageToChat(user, message) {
     chatContent.innerHTML += `<p><b>${user}</b>: ${message}`;
     chatScroll.scrollTop = chatScroll.scrollHeight;
-    testInput.innerHTML += `<p><i>${message}</i>`;
 }
 
 function toggleChatHandler() {
@@ -274,6 +273,14 @@ function testPythonData(){
             console.log('GET response as JSON:');
             console.log(json); // Here’s our JSON object
         })
+}
+
+function testVideoText(message){
+    //testInput.innerHTML += `<p><i>${message}</i>`; // adds below
+    currentText = document.getElementById('testText');
+    var textToAdd = document.createTextNode(" " + message);
+    currentText.appendChild(textToAdd);
+    //testInput.innerHTML = `<p><i>${message}</i>`; // replaces previous
 }
 
 addLocalVideo();
