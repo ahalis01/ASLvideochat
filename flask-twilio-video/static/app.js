@@ -133,6 +133,7 @@ function trackUnsubscribed(track) {
     });
 };
 
+/// add code to clear chat once everyone disconnects/////////////////////////////////////////////////////////////////////////////
 function disconnect() {
     room.disconnect();
     if (chat) {
@@ -282,6 +283,10 @@ function testVideoText(message){
     currentText.appendChild(textToAdd);
     
     //testInput.innerHTML = `<p><i>${message}</i>`; // replaces previous
+}
+
+function testClearChat(){
+    chatContent.innerHTML = ``;
 }
 
 addLocalVideo();
