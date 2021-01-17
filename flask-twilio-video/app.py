@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, abort
+from flask import Flask, render_template, request, abort, jsonify
 from twilio.jwt.access_token import AccessToken
 from twilio.jwt.access_token.grants import VideoGrant, ChatGrant
 from twilio.rest import Client
@@ -53,6 +53,19 @@ def login():
     return {'token': token.to_jwt().decode(),
             'conversation_sid': conversation.sid}
 
+
+@app.route('/testingData', methods=['GET','POST'])
+def testingData():
+    # POST request
+    if request.method == 'POST':
+        print('Incoming..')
+        print(request.get_json())  # parse as JSON
+        return 'OK', 200
+
+    # GET request
+    else:
+        message = {'greeting':'Hello from Flask!'}
+        return jsonify(message)  # serialize and use JSON headers
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

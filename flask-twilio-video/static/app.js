@@ -253,8 +253,29 @@ function onChatInputKey(ev) {
     }
 };
 
+function testPythonData(){
+    fetch('/testingData')
+        .then(function(response){
+            return response.text();
+        }).then(function(text){
+            console.log('GET response text');
+            console.log(text);
+        })
+
+    fetch('/testingData')
+        .then(function (response) {
+            return response.json(); // But parse it as JSON this time
+        })
+        .then(function (json) {
+            console.log('GET response as JSON:');
+            console.log(json); // Here’s our JSON object
+        })
+}
+
+
 addLocalVideo();
 button.addEventListener('click', connectButtonHandler);
 shareScreen.addEventListener('click', shareScreenHandler);
 toggleChat.addEventListener('click', toggleChatHandler);
 chatInput.addEventListener('keyup', onChatInputKey);
+testPythonData();
