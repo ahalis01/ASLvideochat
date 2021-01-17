@@ -255,8 +255,30 @@ function onChatInputKey(ev) {
     }
 };
 
+function testPythonData(){
+    // GET is the default method, so we don't need to set it
+    fetch('/testingData')
+        .then(function (response) {
+            return response.text();
+        }).then(function (text) {
+            console.log('GET response text:');
+            console.log(text); // Print the greeting as text
+        });
+
+    // Send the same request
+    fetch('/testingData')
+        .then(function (response) {
+            return response.json(); // But parse it as JSON this time
+        })
+        .then(function (json) {
+            console.log('GET response as JSON:');
+            console.log(json); // Here’s our JSON object
+        })
+}
+
 addLocalVideo();
 button.addEventListener('click', connectButtonHandler);
 shareScreen.addEventListener('click', shareScreenHandler);
 toggleChat.addEventListener('click', toggleChatHandler);
 chatInput.addEventListener('keyup', onChatInputKey);
+testPythonData();
