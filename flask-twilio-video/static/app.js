@@ -221,9 +221,11 @@ function connectChat(token, conversationSid) {
             });
             return conv.getMessages().then((messages) => {
                 chatContent.innerHTML = '';
+                /*
                 for (let i = 0; i < messages.items.length; i++) {
                     addMessageToChat(messages.items[i].author, messages.items[i].body);
                 }
+                */
                 toggleChat.disabled = false;
             });
         });
