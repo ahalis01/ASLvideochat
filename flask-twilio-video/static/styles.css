@@ -49,7 +49,7 @@ html, body {
     height: 180px;
 }
 .participant .label {
-    background-color: rgb(138, 30, 30);
+    background-color: #ddd;
     padding: 2px;
 }
 .participantZoomed {
